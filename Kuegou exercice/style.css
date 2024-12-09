@@ -1,0 +1,30 @@
+#head {
+    color: blue;
+    background-color: #666;
+}
+
+#input1 {
+    background-color: #ccc;
+}
+
+#log {
+    background-color: red;
+}
+
+#copy {
+    padding-left: 70%;
+}
+table {
+    border-radius: 1%;
+    
+
+}
+
+td {
+    
+    border-radius: 2%;
+}
+
+th {
+    border-radius: 2%;
+}

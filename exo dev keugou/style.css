@@ -1,0 +1,81 @@
+body {
+    background-color: antiquewhite;
+}
+
+
+.cercle p  {
+    width: 200px; /* taille du cercle */
+    height: 200px; /* taille du cercle */
+    border-radius: 50%; /* créer un cercle */
+    background-color: green; /* couleur de fond */
+    text-align: center;
+    
+    font-size: 100%; /* taille du texte */
+    padding: 20px; /* espace entre le texte et le bord du cercle */
+    display: flex; /* utiliser flexbox pour centrer le texte */
+     /*justify-content: center; centrer le texte horizontalement */
+    align-items: center; /* centrer le texte verticalement */
+  }
+  
+
+  .cercle2 p  {
+    margin: -21% 30% 00% 21%;
+    width: 200px; /* taille du cercle */
+    height: 200px; /* taille du cercle */
+    border-radius: 50%; /* créer un cercle */
+    background-color: green; /* couleur de fond */
+    text-align: center;
+    
+    font-size: 100%; /* taille du texte */
+    padding: 20px; /* espace entre le texte et le bord du cercle */
+    display: flex; /* utiliser flexbox pour centrer le texte */
+     /*justify-content: center; centrer le texte horizontalement */
+    align-items: center; /* centrer le texte verticalement */
+  }
+
+  .cercle3 p  {
+    margin: -19% -100% 00% 42%;
+    width: 200px; /* taille du cercle */
+    height: 200px; /* taille du cercle */
+    border-radius: 50%; /* créer un cercle */
+    background-color: green; /* couleur de fond */
+    text-align: center;
+    
+    font-size: 100%; /* taille du texte */
+    padding: 20px; /* espace entre le texte et le bord du cercle */
+    display: flex; /* utiliser flexbox pour centrer le texte */
+     /*justify-content: center; centrer le texte horizontalement */
+    align-items: center; /* centrer le texte verticalement */
+  }
+
+  .cercle4 p  {
+    margin-left: 9%;
+    width: 200px; /* taille du cercle */
+    height: 200px; /* taille du cercle */
+    border-radius: 50%; /* créer un cercle */
+    background-color: green; /* couleur de fond */
+    text-align: center;
+    
+    font-size: 100%; /* taille du texte */
+    padding: 20px; /* espace entre le texte et le bord du cercle */
+    display: flex; /* utiliser flexbox pour centrer le texte */
+     /*justify-content: center; centrer le texte horizontalement */
+    align-items: center; /* centrer le texte verticalement */
+  }
+
+  .cercle5 p  {
+    margin: -21% 30% 00% 30%;
+    width: 200px; /* taille du cercle */
+    height: 200px; /* taille du cercle */
+    border-radius: 50%; /* créer un cercle */
+    background-color: green; /* couleur de fond */
+    text-align: center;
+    
+    font-size: 100%; /* taille du texte */
+    padding: 20px; /* espace entre le texte et le bord du cercle */
+    display: flex; /* utiliser flexbox pour centrer le texte */
+     /*justify-content: center; centrer le texte horizontalement */
+    align-items: center; /* centrer le texte verticalement */
+  }
+  
+  
