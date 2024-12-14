@@ -1,17 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
+          integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <!-- added->A blanc -->
-    <!-- Modified->M jaune-->
-    <!-- untracked->U vert-->
-    <!-- delet->D rouge-->
 
+<body style="background-image: url('img2.webp'); background-size: cover; background-position: center;">
+    <header>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <ul class="menu">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Services</a>
+                            <ul class="submenu">
+                                <li><a href="#">Web Design</a></li>
+                                <li><a href="#">Développement</a></li>
+                                <li><a href="#">Coach</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact</a>
+                            <ul class="submenu">
+                                <li><a href="https://wa.me/1234567890" target="_blank"><i class="fa-brands fa-whatsapp"></i> 671316540</a></li>
+                                <li><a href="#">696151224</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="search" name="search" placeholder="Search" class="search-bar">
+                </div>
+                <div class="col-md-3 text-end">
+                    <button type="submit" class="search-btn">Search</button>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <main>
+        <div class="flex-container">
+            <div>
+                <h1><div class="c1">Salut, bienvenue</div></h1>
+                <h1><div class="c2">Sur mon</div></h1>
+                <h1><div class="c3">Portfolio</div></h1>
+            </div>
+            <img src="img.jpg" alt="Profile Image">
+        </div>
+    </main>
 
+    <footer>
+        <a href="https://wa.me/1234567890" target="_blank" class="contact-link">
+            <i class="fa-brands fa-whatsapp"></i> Contact Me
+        </a>
+    </footer>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <i class="fa-brands fa-twitter"></i>
+        </a>
+    </div>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            background: #333;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: #555;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #444;
+            padding: 10px 0;
+            list-style: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .menu li:hover .submenu {
+            display: block;
+        }
+
+        .submenu li {
+            margin: 0;
+        }
+
+        .submenu a {
+            padding: 10px 20px;
+            display: block;
+            color: white;
+        }
+
+        .submenu a:hover {
+            background: #666;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+        }
+
+        .search-btn {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #0056b3;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .flex-container img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-icons i {
+            font-size: 30px;
+            color: #f9f9f9;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons i:hover {
+            color: #007bff;
+            transform: scale(1.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+    </style>
 </body>
+
 </html>

@@ -1,0 +1,221 @@
+body {
+    /* background-color: rgb(184, 159, 159); */
+    padding: 0px;
+    
+    background-image: url('img2.avif');
+    background-size: cover;
+    background-position: center;
+    
+} 
+p {
+    color: #f3f6f7;
+}
+
+footer{
+    border: 1px;
+    color: blue;
+}
+
+aside img {
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Set a max width as per your layout */
+    border-radius: 5px;
+}
+
+
+nav a:hover {
+    color: #007bff;
+    font-size: 22px;
+}
+
+ 
+/* nav ul:hover {
+    color: rgb(48, 14, 181);
+    
+    color:White; 
+    text-decoration:none; font: bold 12px Arial; 
+    line-height: 32px;
+} */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding: 1em;
+    
+  }
+  nav ul li {
+    
+    flex: 1;
+    text-align: center;
+  }
+
+ 
+aside {
+    width: 25%;
+    margin-left: 70%;
+    margin-top: 1%;
+}
+
+main h1 {
+    color: rgb(243, 246, 249);
+    margin-left: 30%;
+    margin-top: 1%;
+    
+}
+
+ /* Animation pour le fade-in avec mouvement vers le haut */
+ @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Déplace l'élément vers le bas au début */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Position normale */
+    }
+}
+
+/* Appliquer l'animation aux titres <h1> */
+h1 {
+    color: rgb(243, 249, 247);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Ajout d'une animation par délai pour chaque h1 */
+h1:nth-child(1) {
+    animation-delay: 0s; /* Pas de délai pour le premier titre */
+    
+}
+h1 .c1:hover {
+    color: blue;
+}
+
+h1:nth-child(2){
+    animation-delay: 0.5s; /* Délai de 0.5s pour le deuxième titre */
+    
+}
+.c2:hover {
+    color: red;
+}
+
+h1:nth-child(3) {
+    animation-delay: 1s; /* Délai de 1s pour le troisième titre */
+
+}
+.c3:hover {
+    
+    color: aquamarine;
+}
+
+/* Style pour le conteneur flex */
+.flex-container {
+    display: flex;
+    justify-content: center;  /* Centrer les éléments horizontalement */
+    align-items: center;      /* Centrer les éléments verticalement */
+    height: 100vh;            /* Utiliser toute la hauteur de la fenêtre */
+    gap: 20px;                /* Espacement entre les éléments */
+    flex-wrap: wrap;          /* Permet aux éléments de se déplacer sur plusieurs lignes si nécessaire */
+}
+
+.flex-container img {
+    max-width: 100%; /* L'image prend toute la largeur de son conteneur */
+    height: auto;    /* Garde les proportions de l'image */
+    max-width: 300px; /* Limite la largeur de l'image */
+}
+
+    /* Positionner les icônes en bas à droite */
+    .social-icons {
+        position: absolute;
+        bottom: 20px; /* Distance du bas de la page */
+        right: 20px;  /* Distance du côté droit de la page */
+        display: flex;
+        flex-direction: column; /* Aligner les icônes verticalement */
+        gap: 15px; /* Espacement entre les icônes */
+    }
+
+    /* Style des icônes */
+    .social-icons i {
+        font-size: 30px; /* Taille des icônes */
+        color: #f9f9f9; /* Couleur des icônes */
+        transition: color 0.3s ease, transform 0.3s ease; /* Transition pour le survol */
+    }
+
+    /* Effet lors du survol des icônes */
+    .social-icons i:hover {
+        color: #007bff; /* Changer la couleur au survol */
+        transform: scale(1.2); /* Agrandir légèrement l'icône au survol */
+    }
+
+    #search {
+        margin-left: 10%;
+        align-items: center;
+        border: none;
+    }
+    
+    button {
+        width: 90px; /* Largeur initiale */
+        height: 30px; /* Hauteur initiale */
+        background-color: lightgray; /* Couleur de fond par défaut */
+        border: none; /* Supprime les bordures */
+        border-radius: 5px; /* Coins légèrement arrondis */
+        transition: all 0.3s ease; /* Ajoute une transition pour un effet fluide */
+        color: black; /* Couleur du texte */
+        font-size: 16px;
+        margin-left: 20%;
+        align-items: center;
+    }
+/*     
+    button:hover {
+        background-color: green; 
+        color: white; 
+    } */
+
+
+
+
+    
+
+    nav ul li:hover ul {
+        display: block; /* Affiche le sous-menu */
+    }
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f2eded;
+    animation: slideDown 0.3s ease-in-out; /* Exemple d'animation */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h2 {
+    color: #f3f6f7;
+}
+    
+
+#About {
+    background: linear-gradient(to right, #007bff, #6610f2);
+            color: white;
+            padding: 100px 0;
+}
+
+#projects {
+    text-decoration: underline;
+    background: linear-gradient(to right, #91f9a2, #13f213);
+            color: white;
+            padding: 100px 0;
+}
