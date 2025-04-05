@@ -1,0 +1,116 @@
+
+/* nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding: 2%;
+    
+  }
+  nav ul li {
+    
+    flex: 1;
+    text-align: center;
+  } */
+  .row {
+    background-color: rgb(47, 47, 47);
+    padding-bottom: -3%;
+    align-items: center;
+    padding: 2%;
+}
+
+footer {
+    
+    background-color: rgb(212, 202, 210);
+    padding-bottom: -3%;
+}
+
+footer p {
+    align-items: center;
+   padding: 2%;
+}
+
+aside {
+  color: black;
+ margin-top: -40%;
+ margin-left: 50%;
+ 
+  
+}
+aside ul li {
+  text-decoration: none;
+}
+
+
+form {
+  background-image: url('https://placehold.co/1920x1150');
+  background-size: cover;
+  height: 900px;
+  color: #434242;
+  text-align: center;
+  display: flex;
+  /* z-index: 1000; */
+  padding: 5%;
+  padding-left: 36%;
+}
+
+section {
+  margin-top: 35%;
+}
+main {
+  margin-left: 30%;
+  margin-top: 6%;
+}
+a {
+  color: aliceblue;
+  padding: 3%;
+  width: 50%;
+  text-decoration: none;
+}
+.exposant {
+  font-size: 30%; /* Réduit la taille du texte */
+  background-color: yellow;
+  color: black;
+  vertical-align: super; /* Positionne en haut */
+  
+  
+}
+.cover {
+  background-image: url('https://placehold.co/1920x1150');
+  background-size: cover;
+  height: 900px;
+  color: #434242;
+  text-align: center;
+  display: flex;
+  /* z-index: 1000; */
+  padding: 21%;
+  padding-left: 30%;
+}
+
+.cover1 {
+  background-image: url('https://placehold.co/1920x1150');
+  height: 200px;
+  background-size: cover;
+  margin-top: 0.1%;
+  text-align: center;
+  display: flex;
+  color: #434242;
+}
+
+.indice {
+  font-size: 30%; /* Réduit la taille du texte */
+      vertical-align: sub; /* Positionne en bas */
+      padding-top: -  50%;
+      margin-left: -40%;
+}
+.late {
+  margin-top: 22%;
+  background-color: gainsboro;
+}
+ul {
+  list-style: none; /* Retire les points */
+  padding: 0; /* Retire l'indentation */
+  margin: 0;
+}

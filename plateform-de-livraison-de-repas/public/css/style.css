@@ -1,0 +1,216 @@
+body {
+    background-color: #ff8400;
+}
+
+#projects {
+    padding: 20px;
+}
+.card {
+    max-width: 100%; /* L'image prend toute la largeur de son conteneur */
+    height: auto;    /* Garde les proportions de l'image */
+    max-width: 300px; /* Limite la largeur de l'image */
+}
+.card-body .btn {
+    height: 50px;
+    width: 70px;
+    padding: 10px;
+}
+   /* article {
+    width: 45%;
+} */
+#container {
+    display: flex;
+    
+}
+.Accueil {
+    font-size: xx-large;
+}
+main h1 {
+    color: rgb(15, 240, 101);
+    /* margin-left: 30%;
+    margin-top: 1%; */
+    font-size: xx-large;
+}
+
+ /* Animation pour le fade-in avec mouvement vers le haut */
+ @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Déplace l'élément vers le bas au début */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Position normale */
+    }
+}
+
+/* Appliquer l'animation aux titres <h1> */
+h1 {
+    color: rgb(0, 8, 6);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Ajout d'une animation par délai pour chaque h1 */
+h1:nth-child(1) {
+    animation-delay: 0s; /* Pas de délai pour le premier titre */
+    
+}
+h1 .c1:hover {
+    color: blue;
+}   
+
+h1:nth-child(2){
+    animation-delay: 0.5s; /* Délai de 0.5s pour le deuxième titre */
+    
+}
+.c2:hover {
+    color: red;
+}
+
+h1:nth-child(3) {
+    animation-delay: 1s; /* Délai de 1s pour le troisième titre */
+
+}
+.c3:hover {
+    
+    color: aquamarine;
+}
+ 
+
+/* Style pour le conteneur flex */
+.flex-container {
+    display: flex;
+    justify-content: center;  /* Centrer les éléments horizontalement */
+    align-items: center;      /* Centrer les éléments verticalement */
+    /* height: 100vh;            Utiliser toute la hauteur de la fenêtre */
+    gap: 20px;                /* Espacement entre les éléments */
+    flex-wrap: wrap;          /* Permet aux éléments de se déplacer sur plusieurs lignes si nécessaire */
+}
+
+.flex-container img {
+    max-width: 100%; /* L'image prend toute la largeur de son conteneur */
+    height: auto;    /* Garde les proportions de l'image */
+    max-width: 300px; /* Limite la largeur de l'image */
+}
+
+
+button :hover {
+    /* color: #fff; */
+    background-color: #fff;
+}
+
+main {
+    background-image: url('/images/welcome.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* width: 500%; */
+    color: #fff;
+    height: 700px;
+    padding: 150px;
+    text-align: center;
+}
+
+*{box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: initial;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  padding: 0 0 0 50%;
+  width: 100%;
+  font-size: x-large;
+}
+
+/* Add styles to the form container */
+.containerQ {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.containerQ input[type=text], .containerQ input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.containerQ input[type=text]:focus, .containerQ input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.containerQ .btn {
+  background-color: #303234;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.containerQ .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.containerQ .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 20px; /* Distance du bas de la page */
+    right: 20px;  /* Distance du côté droit de la page */
+    display: flex;
+    flex-direction: column; /* Aligner les icônes verticalement */
+    gap: 15px; /* Espacement entre les icônes */
+}
+
+/* Style des icônes */
+.social-icons i {
+    font-size: 30px; /* Taille des icônes */
+    color: #f9f9f9; /* Couleur des icônes */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transition pour le survol */
+}
+
+/* Effet lors du survol des icônes */
+.social-icons i:hover {
+    color: #ff8400; /* Changer la couleur au survol */
+    transform: scale(1.2); /* Agrandir légèrement l'icône au survol */
+}
+
+footer{
+    border: 1px;
+    color: black;
+    font-size: larger;
+}
+footer:hover{
+    color: red
+}

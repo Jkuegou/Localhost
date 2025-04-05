@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity help</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .box{
+            width: 150px;
+            height: 100px;
+            background: linear-gradient(135deg, #f5f4f4, #ede8e9);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .mission{
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Espacement vertical entre les cards */
+        
+        }
+    </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">HELPER</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+      </ul>
+    </nav>
+    <a href="#donate" class="donate-button">Donate</a>
+  </header>
+
+  <section class="hero">
+    <h1>Help The Children</h1>
+    <p>
+      We do whatever it takes to make sure children don't just survive but thrive. 
+      Helper believes that every child should be able to make their mark on their world and 
+      help build a better future.
+    </p>
+    <a href="#more" class="learn-more">Hello and Learn More</a>
+  </section>
+  <section class="mission">
+    <div class="boxes">
+      <div class="box" style="width: 217px; height: 153px;"></div>
+      <div class="box" style="width: 271px; height: 191px;"></div>
+      <div class="box" style="width: 271px; height: 191px;"></div>
+      <div class="box" style="width: 339px; height: 236px;"></div>
+      <div class="box" style="width: 179px; height: 126px;"></div>
+      <div class="box" style="width: 217px; height: 153px;"></div>
+    </div>
+    <div class="mission-content">
+      <h2>Our Mission</h2>
+      <p>
+        Our organization pursues several goals that can be identified as our mission. Learn more about them below.
+      </p>
+      <ul>
+        <li><strong>Saving Children</strong>: Our main mission is to save and rescue permanently displaced children.</li>
+        <li><strong>Peace On The Planet</strong>: By working with our partners, we aim to establish peaceful relationships.</li>
+        <li><strong>Care & Protection</strong>: We provide global care and protection to support children all over the world.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="latest-causes">
+    <div class="container">
+      <h2>Latest Causes</h2>
+      <p>
+        At Helper, there are various charity causes and projects, in which you can always take part.
+        Feel free to learn about them below or browse our website for more information.
+      </p>
+      <div class="causes-grid">
+        <div class="cause">
+          <div class="image-placeholder">372x396</div>
+          <h3>Recycling for Charity</h3>
+          <p class="funds-raised"><span>$92,160</span> of $100,000 raised</p>
+        </div>
+        <div class="cause">
+          <div class="image-placeholder">372x396</div>
+          <h3>Clean Water For People</h3>
+          <p class="funds-raised"><span>$52,380</span> of $55,000 raised</p>
+        </div>
+        <div class="cause">
+          <div class="image-placeholder">372x396</div>
+          <h3>Children's Education</h3>
+          <p class="funds-raised"><span>$42,280</span> of $45,000 raised</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="subscribe-section">
+      <h2>Subscribe to stay informed</h2>
+      <form class="subscribe-form">
+        <input type="email" placeholder="Your E-mail" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="placeholder">
+      <p>1920x1056</p>
+    </div>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo-placeholder.png" alt="Helper Logo">
+        <p>Helper Charity Foundation</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#">About Us</a>
+        <a href="#">Causes</a>
+        <a href="#">Gallery</a>
+        <a href="#">Team</a>
+        <a href="#">Contacts</a>
+      </nav>
+      <div class="social-icons">
+        <a href="#"><img src="icon-facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="icon-instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="icon-twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="icon-youtube.png" alt="YouTube"></a>
+        <a href="#"><img src="icon-pinterest.png" alt="Pinterest"></a>
+      </div>
+      <p class="copyright">
+        © 2025 Helper. All Rights Reserved. Design by HelperCharitable.
+      </p>
+    </div>
+</footer>
+<script>
+    // Récupérer toutes les cards
+    const cards = document.querySelectorAll(".box");
+
+    // Fonction pour animer une card
+    function animateCard(card, speed) {
+        let position = 0; // Position de départ
+        let direction = 1; // 1 pour droite, -1 pour gauche
+        const maxDistance = 50; // Distance maximale du mouvement
+
+        function move() {
+            position += direction * speed;
+
+            // Inverser la direction si on atteint les limites
+            if (position >= maxDistance || position <= 0) {
+                direction *= -1;
+            }
+
+            // Appliquer le mouvement
+            box.style.transform = translateX($ {position} );
+
+            // Continuer l'animation
+            requestAnimationFrame(move);
+        }
+
+        move(); // Lancer l'animation
+    }
+
+    // Appliquer l'animation à chaque card avec une vitesse différente
+    cards.forEach((card, index) => {
+        const speed = 1 + index * 0.5; // Vitesse augmentant progressivement
+        animateCard(card, speed);
+    });
+</script>
+
+
+</body>
+</html>
+

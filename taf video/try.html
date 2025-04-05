@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Espacement vertical entre les cards */
+        }
+
+        .card {
+            width: 150px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" style="margin-top: -20rem;">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+        <div class="card">Card 5</div>
+        <div class="card">Card 6</div>
+    </div>
+
+    <script>
+        // Récupérer toutes les cards
+        const cards = document.querySelectorAll(".card");
+
+        // Fonction pour animer une card
+        function animateCard(card, speed) {
+            let position = 0; // Position de départ
+            let direction = 1; // 1 pour droite, -1 pour gauche
+            const maxDistance = 50; // Distance maximale du mouvement
+
+            function move() {
+                position += direction * speed;
+
+                // Inverser la direction si on atteint les limites
+                if (position >= maxDistance || position <= 0) {
+                    direction *= -1;
+                }
+
+                // Appliquer le mouvement
+                card.style.transform = `translateX(${position}px)`;
+
+                // Continuer l'animation
+                requestAnimationFrame(move);
+            }
+
+            move(); // Lancer l'animation
+        }
+
+        // Appliquer l'animation à chaque card avec une vitesse différente
+        cards.forEach((card, index) => {
+            const speed = 1 + index * 0.5; // Vitesse augmentant progressivement
+            animateCard(card, speed);
+        });
+    </script>
+</body>
+</html>

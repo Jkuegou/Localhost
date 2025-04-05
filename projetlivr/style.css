@@ -1,0 +1,45 @@
+
+nav a:hover {
+    background-color: #007bff;
+    font-size: 22px;
+}
+
+ 
+/* nav ul:hover {
+    color: rgb(48, 14, 181);
+    
+    color:White; 
+    text-decoration:none; font: bold 12px Arial; 
+    line-height: 32px;
+} */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding: 1em;
+    
+  }
+  nav ul li {
+    
+    flex: 1;
+    text-align: center;
+  }
+  #btn {
+    background-color: lightgray;
+    color: white;
+    margin-left: 10%;
+    border-radius: 5px;
+}
+#btn:hover {
+    background-color: rgb(91, 89, 89);
+}
+.container a {
+    color: azure;
+    }
+
+body {
+    background-image: url(logo.jpg);  
+}

@@ -5,7 +5,7 @@ body {
     background-image: url('img2.avif');
     background-size: cover;
     background-position: center;
-    
+  
 } 
 p {
     color: #f3f6f7;
@@ -62,8 +62,8 @@ aside {
 
 main h1 {
     color: rgb(243, 246, 249);
-    margin-left: 30%;
-    margin-top: 1%;
+    /* margin-left: 30%;
+    margin-top: 1%; */
     
 }
 
@@ -81,7 +81,7 @@ main h1 {
 
 /* Appliquer l'animation aux titres <h1> */
 h1 {
-    color: rgb(243, 249, 247);
+    color: rgb(0, 8, 6);
     animation: fadeInUp 1.5s ease-out forwards;
 }
 
@@ -110,6 +110,7 @@ h1:nth-child(3) {
     
     color: aquamarine;
 }
+ 
 
 /* Style pour le conteneur flex */
 .flex-container {
@@ -168,11 +169,11 @@ h1:nth-child(3) {
         margin-left: 20%;
         align-items: center;
     }
-/*     
+    
     button:hover {
         background-color: green; 
         color: white; 
-    } */
+    }
 
 
 
@@ -203,19 +204,69 @@ nav ul li ul {
 }
 
 h2 {
-    color: #f3f6f7;
+    color: #020f14;
 }
     
 
 #About {
-    background: linear-gradient(to right, #007bff, #6610f2);
+    background: linear-gradient(to right, #a9caee, #6610f2);
             color: white;
             padding: 100px 0;
 }
 
-#projects {
+
+
+.lead a {
+    
+}
+
+
+
+
+
+
+.g {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: fit-content;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+ #but {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+} 
+
+.prev {
     text-decoration: underline;
-    background: linear-gradient(to right, #91f9a2, #13f213);
-            color: white;
-            padding: 100px 0;
+    /* left: 10px; */
+    /* margin-bottom: 5%; */
+    margin-top: 50%;
+}
+
+.next {
+    text-decoration: underline;
+    right: 10px; 
+    
+    bottom: 20px;
 }
