@@ -1065,99 +1065,99 @@
   </style>
 </head>
 <body>
-   <!-- Sidebar -->
-   <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <h2>Junior<span>food</span></h2>
-        <div class="sidebar-toggle" id="sidebarToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-    <div class="sidebar-menu">
-        <a href="{{ route('dashboardm') }}" class="menu-item active">
-            <i class="fas fa-th-large"></i>
-            <span>Dashboard</span>
-        </a>
-        <a href="{{ route('restaurants.index') }}" class="menu-item">
-            <i class="fas fa-utensils"></i>
-            <span>Restaurants</span>
-        </a>
-        <a  href="{{ route('plats.index') }}" class="menu-item">
-            <i class="fas fa-hamburger"></i>
-            <span>Plats</span>
-        </a>
-        <a  href="{{ route('commandes.index') }}" class="menu-item">
-            {{-- <i class="fas fa-hamburger"></i> --}}
-            <span>📋commandes</span>
-        </a>
-        <a href="{{ route('utilisateurs.index') }}" class="menu-item">
-            <i class="fas fa-users"></i>
-            <span>Utilisateurs</span>
-        </a>
-        <a href="{{ route('livreurs.index') }}" class="menu-item">
-            <i class="fas fa-motorcycle"></i>
-            <span>Livreurs</span>
-        </a>
-        <a href="{{ route('promotions.index') }}" class="menu-item">
-            <i class="fas fa-tags"></i>
-            <span>Promotions</span>
-        </a>
-        <a href="{{ route('statistiques') }}" class="menu-item">
-            <i class="fas fa-chart-line"></i>
-            <span>Statistiques</span>
-        </a>
-        <a href="{{ route('zones-livraison.index') }}" class="menu-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Zones de livraison</span>
-        </a>
-        <a href="{{ route('parametres') }}" class="menu-item">
-            <i class="fas fa-cog"></i>
-            <span>Paramètres</span>
-        </a>
-    </div>
-   <div class="sidebar-footer">
+ <!-- Sidebar -->
+ <div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+      <h2>Junior<span>food</span></h2>
+      <div class="sidebar-toggle" id="sidebarToggle">
+          <i class="fas fa-bars"></i>
+      </div>
+  </div>
+  <div class="sidebar-menu">
+      <a href="{{ route('dashboardm') }}" class="menu-item active">
+          <i class="fas fa-th-large"></i>
+          <span>Dashboard</span>
+      </a>
+      <a href="{{ route('restaurants.index') }}" class="menu-item">
+          <i class="fas fa-utensils"></i>
+          <span>Restaurants</span>
+      </a>
+      <a  href="{{ route('plats.index') }}" class="menu-item">
+          <i class="fas fa-hamburger"></i>
+          <span>Plats</span>
+      </a>
+      <a  href="{{ route('commandes.index') }}" class="menu-item">
+          <i class="fas fa-hamburger"></i>
+          <span>commandes</span>
+      </a>
+      <a href="{{ route('utilisateurs.index') }}" class="menu-item">
+          <i class="fas fa-users"></i>
+          <span>Utilisateurs</span>
+      </a>
+      <a href="{{ route('livreurs.index') }}" class="menu-item">
+          <i class="fas fa-motorcycle"></i>
+          <span>Livreurs</span>
+      </a>
+      <a href="{{ route('promotions.index') }}" class="menu-item">
+          <i class="fas fa-tags"></i>
+          <span>Promotions</span>
+      </a>
+      <a href="{{ route('statistiques') }}" class="menu-item">
+          <i class="fas fa-chart-line"></i>
+          <span>Statistiques</span>
+      </a>
+      <a href="{{ route('zones-livraison.index') }}" class="menu-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Zones de livraison</span>
+      </a>
+      <a href="{{ route('parametres') }}" class="menu-item">
+          <i class="fas fa-cog"></i>
+          <span>Paramètres</span>
+      </a>
+  </div>
+ <div class="sidebar-footer">
 <div class="sidebar-profile">
-    <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="Profile" class="profile-img">
-    <div class="profile-info">
-        <div class="profile-name">{{ Auth::user()->name }}</div>
-        <div class="profile-role">{{ Auth::user()->role }}</div>
-    </div>
-    <form method="POST" action="{{ route('logout') }}" class="mt-2 w-full">
-        @csrf
-        <button type="submit" class="text-red-500 hover:text-red-700 text-sm w-full text-left">
-            <i class="fas fa-sign-out-alt mr-1"></i> Déconnexion
-        </button>
-    </form>
+  <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="Profile" class="profile-img">
+  <div class="profile-info">
+      <div class="profile-name">{{ Auth::user()->name }}</div>
+      <div class="profile-role">{{ Auth::user()->role }}</div>
+  </div>
+  <form method="POST" action="{{ route('logout') }}" class="mt-2 w-full">
+      @csrf
+      <button type="submit" class="text-red-500 hover:text-red-700 text-sm w-full text-left">
+          <i class="fas fa-sign-out-alt mr-1"></i> Déconnexion
+      </button>
+  </form>
 </div>
 </div>
 </div>
 
 <!-- Main Content -->
 <div class="main-content" id="mainContent">
-    <!-- Top Navigation -->
-    <div class="top-nav">
-        <h2>Dashboard</h2>
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Rechercher...">
-        </div>
-        <div class="nav-icons">
-            <div class="nav-icon">
-                <i class="fas fa-bell"></i>
-                <span class="badge">3</span>
-            </div>
-            <div class="nav-icon">
-                <i class="fas fa-envelope"></i>
-                <span class="badge">5</span>
-            </div>
-            <form method="POST" action="{{ route('logout') }}" class="nav-icon">
-                @csrf
-                <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0; width: 100%; height: 100%;">
-                    <i class="fas fa-sign-out-alt"></i>
-                </button>
-            </form>
-        </div>
-    </div>
+  <!-- Top Navigation -->
+  <div class="top-nav">
+      <h2>Commandes</h2>
+      <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Rechercher...">
+      </div>
+      <div class="nav-icons">
+          <div class="nav-icon">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+          </div>
+          <div class="nav-icon">
+              <i class="fas fa-envelope"></i>
+              <span class="badge">5</span>
+          </div>
+          <form method="POST" action="{{ route('logout') }}" class="nav-icon">
+              @csrf
+              <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0; width: 100%; height: 100%;">
+                  <i class="fas fa-sign-out-alt"></i>
+              </button>
+          </form>
+      </div>
+  </div>
 
       
       <div class="card">

@@ -510,38 +510,75 @@
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <div class="logo">
-                <div class="logo-text">Junior<span>food</span></div>
-            </div>
-            <div class="nav-links">
-                <a href="{{ route('find-food') }}" class="nav-link active">Find Food</a>
-                <a href="{{ route('tracking') }}" class="nav-link">Tracking</a>
-                <a href="{{ route('location') }}" class="nav-link">Location</a>
-                <a href="{{ route('find-restaurant') }}" class="nav-link">Find Restaurant</a>
-            </div>
-            <div class="search-cart-profile">
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search for food or restaurant...">
-                    <i class="fas fa-search search-icon"></i>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-text">Junior<span>food</span></div>
                 </div>
-                <div class="cart-container">
-                    <i class="fas fa-shopping-cart cart-icon"></i>
-                    <div class="cart-badge">2</div>
+
+                <div class="nav-links">
+                    <a href="{{ route('find-food') }}" class="nav-link">Find Food</a>
+                    <a href="{{ route('tracking') }}" class="nav-link">Tracking</a>
+                    <a href="{{ route('location') }}" class="nav-link">Location</a>
+                    <a href="{{ route('find-restaurant') }}" class="nav-link">Find Restaurant</a>
                 </div>
-                <div class="profile-container" x-data="{ open: false }">
-                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile" class="profile-img" @click="open = !open">
-                    <div class="profile-dropdown" :class="{ 'active': open }" @click.away="open = false">
-                        <a href="#" class="dropdown-item">My Account</a>
-                        <a href="#" class="dropdown-item">My Orders</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Settings</a>
-                        <a href="#" class="dropdown-item">Help Center</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Logout</a>
+
+                <div class="search-cart-profile">
+                    <div class="search-container">
+                        <span class="search-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </span>
+                        <input type="text" class="search-input" placeholder="Search">
+                    </div>
+
+                    <div class="cart-container">
+                        <span class="cart-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                        </span>
+                        <span class="cart-badge">2</span>
+                    </div>
+
+                    
+                    <div class="profile-container">
+                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+                            alt="Profile" class="profile-img" id="profileImg">
+                        <div class="profile-dropdown" id="profileDropdown">
+                            @auth
+                                @if(auth()->user()->role === 'admin')
+                                    <a href="{{ route('admin.dashboard') }}" class="dropdown-item">Admin Dashboard</a>
+                                @else
+                                    <a href="{{ route('user.dashboard') }}" class="dropdown-item">User Dashboard</a>
+                                @endif
+                                <div class="dropdown-divider"></div>
+                                <!-- This is the correct way to create a logout button with Laravel Breeze -->
+                                {{-- <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a type="submit" class="dropdown-item text-left w-full">
+                                        Logout
+                                    </a>
+                                </form> --}}
+                                <form method="POST" action="{{ route('logout') }}" class="mt-2 w-full">
+                                    @csrf
+                                    <button type="submit" class="text-red-500 hover:text-red-700 text-sm w-full text-left">
+                                        <i class="fas fa-sign-out-alt mr-1"></i> Déconnexion
+                                    </button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="dropdown-item">Login</a>
+                                <a href="{{ route('register') }}" class="dropdown-item">Register</a>
+                            @endauth
+                        </div>
                     </div>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
@@ -713,5 +750,105 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Check if user is admin or regular user
+        const isAdmin = false; // Set this based on your authentication logic
+
+        // Toggle dashboard button text
+        document.addEventListener('DOMContentLoaded', function () {
+            const dashboardText = document.getElementById('dashboard-text');
+            const adminDashboard = document.getElementById('admin-dashboard');
+
+            if (isAdmin) {
+                dashboardText.style.display = 'none';
+                adminDashboard.style.display = 'inline';
+            }
+        });
+
+        // Function to toggle menu items if needed
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+
+        // Add hover effect for navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.color = '#ff7000';
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.style.color = '';
+            });
+        });
+
+        // Add functionality to cart icon
+        const cartIcon = document.querySelector('.cart-container');
+
+        cartIcon.addEventListener('click', () => {
+            alert('Shopping cart clicked!');
+        });
+
+        // Add search functionality
+        const searchInput = document.querySelector('.search-input');
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                alert(`Searching for: ${searchInput.value}`);
+            }
+        });
+
+        // Add this to your existing JavaScript section
+document.addEventListener('DOMContentLoaded', function() {
+    // Profile dropdown functionality
+    const profileImg = document.getElementById('profileImg');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    profileImg.addEventListener('click', () => {
+        profileDropdown.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!profileImg.contains(e.target) && !profileDropdown.contains(e.target)) {
+            profileDropdown.classList.remove('active');
+        }
+    });
+
+    // IMPORTANT: Remove or modify the event listeners for dropdown items
+    // This part is causing your logout button not to work properly
+    
+    /* Remove or comment out this entire section:
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault(); // This prevents the form submission!
+            
+            if (item.textContent === 'User Dashboard') {
+                alert('Navigating to User Dashboard');
+                window.location.href = 'login';
+            } else if (item.textContent === 'Logout') {
+                alert('Logging out...');
+                window.location.href = '/login';
+            }
+
+            profileDropdown.classList.remove('active');
+        });
+    });
+    */
+    
+    // Instead, handle only specific dropdown items that should NOT submit forms
+    const dashboardLink = document.querySelector('.dropdown-item:not(form .dropdown-item)');
+    if (dashboardLink) {
+        dashboardLink.addEventListener('click', () => {
+            profileDropdown.classList.remove('active');
+        });
+    }
+});
+    </script>
 </body>
 </html>
