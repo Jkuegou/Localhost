@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     <style>
+        /* All original styles remain unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -313,8 +314,198 @@
             background-color: #222;
         }
 
+        /* New styles for the popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .food-popup {
+            background-color: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .popup-overlay.active .food-popup {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px;
+        }
+
+        .close-popup {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .close-popup:hover {
+            color: #ff7000;
+        }
+
+        .popup-content {
+            display: flex;
+            flex-direction: row;
+            padding: 0 15px 20px;
+        }
+
+        .popup-left {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .popup-image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .popup-right {
+            width: 250px;
+            border-left: 1px solid #eee;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup-price {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background-color: #e5e5e5;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 36px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .popup-btn {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add-cart-btn {
+            background-color: #ff7000;
+            color: white;
+        }
+
+        .add-cart-btn:hover {
+            background-color: #e06100;
+        }
+
+        .order-now-btn {
+            background-color: #333;
+            color: white;
+        }
+
+        .order-now-btn:hover {
+            background-color: #222;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .popup-content {
+                flex-direction: column;
+            }
+            
+            .popup-left {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .popup-right {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid #eee;
+                padding-left: 0;
+                padding-top: 20px;
+            }
+            
             .food-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
@@ -341,6 +532,10 @@
             .filter-btn {
                 padding: 6px 12px;
                 font-size: 12px;
+            }
+            
+            .popup-image-container {
+                height: 200px;
             }
         }
     </style>
@@ -426,7 +621,7 @@
         
         <div class="food-grid">
             <!-- Food Item 1 -->
-            <div class="food-card">
+            <div class="food-card" data-id="1" data-name="Classic Beef Burger" data-category="Burgers" data-price="8.99" data-img="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3" alt="Burger" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Classic Beef Burger</h3>
@@ -441,7 +636,7 @@
             </div>
             
             <!-- Food Item 2 -->
-            <div class="food-card">
+            <div class="food-card" data-id="2" data-name="Margherita Pizza" data-category="Pizza" data-price="11.99" data-img="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3" alt="Pizza" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Margherita Pizza</h3>
@@ -456,7 +651,7 @@
             </div>
             
             <!-- Food Item 3 -->
-            <div class="food-card">
+            <div class="food-card" data-id="3" data-name="Sushi Combo" data-category="Asian" data-price="15.99" data-img="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-4.0.3" alt="Sushi" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Sushi Combo</h3>
@@ -471,7 +666,7 @@
             </div>
             
             <!-- Food Item 4 -->
-            <div class="food-card">
+            <div class="food-card" data-id="4" data-name="Vanilla Ice Cream" data-category="Desserts" data-price="4.99" data-img="https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3" alt="Ice Cream" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Vanilla Ice Cream</h3>
@@ -486,7 +681,7 @@
             </div>
             
             <!-- Food Item 5 -->
-            <div class="food-card">
+            <div class="food-card" data-id="5" data-name="Spicy Chicken Wings" data-category="Fast Food" data-price="9.99" data-img="https://images.unsplash.com/photo-1619221882266-cf391a57767b?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1619221882266-cf391a57767b?ixlib=rb-4.0.3" alt="Chicken Wings" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Spicy Chicken Wings</h3>
@@ -501,7 +696,7 @@
             </div>
             
             <!-- Food Item 6 -->
-            <div class="food-card">
+            <div class="food-card" data-id="6" data-name="Spaghetti Carbonara" data-category="Italian" data-price="12.99" data-img="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?ixlib=rb-4.0.3" alt="Pasta" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Spaghetti Carbonara</h3>
@@ -516,7 +711,7 @@
             </div>
             
             <!-- Food Item 7 -->
-            <div class="food-card">
+            <div class="food-card" data-id="7" data-name="Berry Smoothie" data-category="Drinks" data-price="5.99" data-img="https://images.unsplash.com/photo-1625807752781-544f90255196?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1625807752781-544f90255196?ixlib=rb-4.0.3" alt="Smoothie" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Berry Smoothie</h3>
@@ -531,7 +726,7 @@
             </div>
             
             <!-- Food Item 8 -->
-            <div class="food-card">
+            <div class="food-card" data-id="8" data-name="Caesar Salad" data-category="Healthy" data-price="7.99" data-img="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3">
                 <img src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3" alt="Salad" class="food-img">
                 <div class="food-info">
                     <h3 class="food-name">Caesar Salad</h3>
@@ -549,6 +744,43 @@
         <button class="load-more">Load More</button>
     </main>
 
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="foodPopup">
+        <div class="food-popup">
+            <div class="popup-header">
+                <button class="close-popup" id="closePopup">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="popup-content">
+                <div class="popup-left">
+                    <div class="popup-image-container">
+                        <img src="" alt="Food Item" class="popup-image" id="popupImage">
+                    </div>
+                    <h2 class="food-name" id="popupName"></h2>
+                    <p class="food-category" id="popupCategory"></p>
+                    <div class="popup-description" id="popupDescription">
+                        Delicious food item prepared with the finest ingredients. Our chefs take great care to ensure the best taste and quality in every bite.
+                    </div>
+                </div>
+                <div class="popup-right">
+                    <div class="popup-price" id="popupPrice"></div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" id="decreaseQty">-</button>
+                        <input type="number" min="1" value="1" class="quantity-input" id="quantityInput">
+                        <button class="quantity-btn" id="increaseQty">+</button>
+                    </div>
+                    <button class="popup-btn add-cart-btn">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                    <button class="popup-btn order-now-btn">
+                        <i class="fas fa-bolt mr-2"></i> Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Profile dropdown functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -565,45 +797,123 @@
                     profileDropdown.classList.remove('active');
                 }
             });
-            
+
             // Filter buttons functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
                     // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
+                    filterBtns.forEach(b => b.classList.remove('active'));
                     // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    // Here you would normally filter the food items
-                    // This is just a placeholder
-                    console.log('Filter selected:', button.textContent);
+                    btn.classList.add('active');
+                    // Add filter logic here
                 });
             });
-            
+
+            // Food popup functionality
+            const foodCards = document.querySelectorAll('.food-card');
+            const foodPopup = document.getElementById('foodPopup');
+            const closePopup = document.getElementById('closePopup');
+            const popupImage = document.getElementById('popupImage');
+            const popupName = document.getElementById('popupName');
+            const popupCategory = document.getElementById('popupCategory');
+            const popupPrice = document.getElementById('popupPrice');
+            const quantityInput = document.getElementById('quantityInput');
+            const decreaseQty = document.getElementById('decreaseQty');
+            const increaseQty = document.getElementById('increaseQty');
+
+            // Open popup when clicking on add-to-cart button in food card
+            foodCards.forEach(card => {
+                const addToCartBtn = card.querySelector('.add-to-cart');
+                addToCartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent card click event
+                    
+                    // Get food data from card attributes
+                    const foodId = card.dataset.id;
+                    const foodName = card.dataset.name;
+                    const foodCategory = card.dataset.category;
+                    const foodPrice = card.dataset.price;
+                    const foodImg = card.dataset.img;
+                    
+                    // Populate popup with food data
+                    popupImage.src = foodImg;
+                    popupName.textContent = foodName;
+                    popupCategory.textContent = foodCategory;
+                    popupPrice.textContent = `$${foodPrice}`;
+                    quantityInput.value = 1;
+                    
+                    // Show popup
+                    foodPopup.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+
+            // Close popup when clicking on close button
+            closePopup.addEventListener('click', () => {
+                foodPopup.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            });
+
+            // Close popup when clicking outside the popup content
+            foodPopup.addEventListener('click', (e) => {
+                if (e.target === foodPopup) {
+                    foodPopup.classList.remove('active');
+                    document.body.style.overflow = 'auto'; // Enable scrolling
+                }
+            });
+
+            // Quantity input functionality
+            decreaseQty.addEventListener('click', () => {
+                let qty = parseInt(quantityInput.value);
+                if (qty > 1) {
+                    quantityInput.value = qty - 1;
+                }
+            });
+
+            increaseQty.addEventListener('click', () => {
+                let qty = parseInt(quantityInput.value);
+                quantityInput.value = qty + 1;
+            });
+
+            // Prevent direct input of non-numeric values
+            quantityInput.addEventListener('input', () => {
+                let qty = parseInt(quantityInput.value);
+                if (isNaN(qty) || qty < 1) {
+                    quantityInput.value = 1;
+                }
+            });
+
             // Add to cart functionality
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const foodName = button.closest('.food-card').querySelector('.food-name').textContent;
-                    alert(`${foodName} added to cart!`);
-                    
-                    // Update cart counter
-                    const cartBadge = document.querySelector('.cart-badge');
-                    const currentCount = parseInt(cartBadge.textContent);
-                    cartBadge.textContent = currentCount + 1;
-                });
+            const addCartBtn = document.querySelector('.add-cart-btn');
+            addCartBtn.addEventListener('click', () => {
+                const foodName = popupName.textContent;
+                const qty = parseInt(quantityInput.value);
+                
+                // Here you would typically add the item to cart
+                console.log(`Added ${qty} ${foodName} to cart`);
+                
+                // Update cart badge
+                const cartBadge = document.querySelector('.cart-badge');
+                const currentCount = parseInt(cartBadge.textContent);
+                cartBadge.textContent = currentCount + 1;
+                
+                // Close popup
+                foodPopup.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Enable scrolling
             });
-            
-            // Load more button
-            const loadMoreBtn = document.querySelector('.load-more');
-            
-            loadMoreBtn.addEventListener('click', () => {
-                alert('Loading more items...');
-                // Here you would normally load more food items
+
+            // Order now functionality
+            const orderNowBtn = document.querySelector('.order-now-btn');
+            orderNowBtn.addEventListener('click', () => {
+                const foodName = popupName.textContent;
+                const qty = parseInt(quantityInput.value);
+                
+                // Here you would redirect to order/checkout page
+                console.log(`Ordering ${qty} ${foodName} now`);
+                
+                // For demo purposes, just close the popup
+                foodPopup.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Enable scrolling
             });
         });
     </script>

@@ -722,7 +722,7 @@
                     food or restaurant in your area.</p>
 
                 <div class="hero-buttons">
-                    <a href="#" class="primary-btn">Order Now</a>
+                    <a href="{{ route('payment.index') }}" class="primary-btn">Order Now</a>
                     <a href="#" class="secondary-btn">See Menu</a>
                 </div>
 

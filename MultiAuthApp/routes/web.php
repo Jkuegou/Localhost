@@ -25,6 +25,9 @@ use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\FrestaurantController;
 
+use App\Http\Controllers\PaymentController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -153,5 +156,12 @@ Route::get('/find-food', [FoodController::class, 'index'])->name('find-food');
 Route::get('/tracking', [TrackingController::class, 'index'])->name('tracking');
 Route::get('/location', [LocationController::class, 'index'])->name('location');
 Route::get('/find-restaurant', [FrestaurantController::class, 'index'])->name('find-restaurant');
+
+// Routes pour la partie paiement
+Route::middleware(['auth'])->group(function () {
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+    Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
+    Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+});
 
 require __DIR__.'/auth.php';
